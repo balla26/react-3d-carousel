@@ -1,26 +1,30 @@
 /* App.css */
+
+/* Styling for the carousel body */
 .carousel-body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-image: linear-gradient(45deg, #7b2cbf, #ffdab9);
+  background-color: rgba(214, 127, 255, 0.315);
   font-family: "Montserrat", sans-serif;
   box-sizing: border-box;
-
 }
 
-
+/* Styling for the carousel container */
 .carousel {
   position: relative;
-  width: 23rem;
-  height: 23rem;
-  perspective: 500px;
+  width: 100vw;
+  max-width: 23rem;
+  height: 100vh;
+  max-height: 23rem;
+  /* perspective: 500px; */
   transform-style: preserve-3d;
 }
 
+/* Styling for each card container */
 .card-container {
   position: absolute;
   width: 100%;
@@ -33,9 +37,10 @@
   transition: all 0.3s ease-out;
 }
 
+/* Styling for each card in the carousel */
 .card-carousel {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   padding: 2rem;
   background-color: hsl(280deg, 40%, calc(100% - var(--abs-offset) * 50%));
   border-radius: 1rem;
@@ -44,28 +49,31 @@
   transition: all 0.3s ease-out;
 }
 
+/* Styling for the heading in each card */
 .card-carousel .carouselH2 {
   text-align: center;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: bold;
   margin: 0 0 0.7em;
   color: #1f2937;
 }
+
+/* Styling for the paragraph in each card */
 .card-carousel .carouselP {
   text-align: center;
-  font-size: 13px;
+  font-size: 1rem;
   margin: 0 0 0.7em;
   color: #1f2937;
-
 }
 
-
+/* Transition and opacity for the heading and paragraph in each card */
 .card-carousel p,
 .card-carousel h2 {
   transition: all 0.3s ease-out;
   opacity: var(--active);
 }
 
+/* Styling for the navigation buttons */
 .nav {
   color: white;
   font-size: 3rem;
@@ -81,11 +89,61 @@
   border: unset;
 }
 
+/* Styling for the left navigation button */
 .nav.left {
-  transform: translateX(-100%) translatey(-50%);
+  transform: translateX(-100%) translateY(-50%);
 }
 
+/* Styling for the right navigation button */
 .nav.right {
   right: 0;
-  transform: translateX(100%) translatey(-50%);
+  transform: translateX(100%) translateY(-50%);
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+  /* Adjusting height and width of carousel body for tablet view */
+  .carousel-body {
+    height: 60vh;
+    width: 100%;
+  }
+
+  /* Adjusting max-width, height, and max-height of carousel for tablet view */
+  .carousel {
+    max-width: 400px;
+    height: 90vw;
+    max-height: 400px;
+  }
+
+  /* Adjusting font size for heading and paragraph in tablet view */
+  .card-carousel .carouselH2 {
+    font-size: 1.5rem;
+  }
+
+  .card-carousel .carouselP {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* Adjusting height and width of carousel body for mobile view */
+  .carousel-body {
+    height: 50vh;
+    width: 100%;
+  }
+
+  /* Adjusting max-width and max-height of carousel for mobile view */
+  .carousel {
+    max-width: 300px;
+    max-height: 300px;
+  }
+
+  /* Adjusting font size for heading and paragraph in mobile view */
+  .card-carousel .carouselH2 {
+    font-size: 1.2rem;
+  }
+
+  .card-carousel .carouselP {
+    font-size: 0.8rem;
+  }
 }
